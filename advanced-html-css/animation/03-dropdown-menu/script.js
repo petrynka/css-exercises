@@ -8,8 +8,16 @@ menuTitle.addEventListener("click", (e) => {
   }  
 })
 
-window.addEventListener("click", (e) => {
-  if (!dropdownContainer.contains(e.target)) {
-    dropdownMenu.classList.remove("visible")
-  }
+dropdownMenu.addEventListener("mouseleave", (e) => {
+  const hideTimeout = setTimeout(removeFunc, 2000);
+  
+  
 })
+
+dropdownMenu.addEventListener("mouseenter", () => {
+  clearTimeout(hideTimeout);
+});
+
+function removeFunc(){
+  dropdownMenu.classList.remove("visible");
+}
